@@ -7,44 +7,27 @@ screen.title("Bouncy Ball!")
 screen.bgcolor("#32CD32")
 screen.tracer(0)
 
-tuna = turtle.Turtle()
-tuna.hideturtle()
-tuna.color("Black")
-tuna.fillcolor("White")
-tuna.penup()
+turtle.getcanvas().config(bd=0, highlightthickness=0) # Remove ugly borders on window
 
-x, y = 0, 0
-dx, dy = 2, 2
-radius = 20
-
-screen_width = 600 / 2
-screen_height = 400 / 2
-
-def drawcircle():
-    tuna.goto(x, y - radius)
-    tuna.begin_fill()
-    tuna.circle(radius)
-    tuna.end_fill()
-
-def travel(new_x, new_y):
-    global x, y
-    x = new_x
-    y = new_y
+ball = turtle.Turtle()
+ball.fillcolor("white")
+ball.color("white")
+ball.shape("circle")
+ball.shapesize(screen.window_width() / 300)
+ball.penup()
 
 screen.listen()
-screen.onkey(lambda: travel(0, 0), "w")
+screen.onkey(lambda: ball.goto(0, 0), "w")
+
+dx, dy = 2, 2
 
 while True:
-    tuna.clear()
-    drawcircle()
-    screen.update()
+    ball.goto(ball.xcor() + dx, ball.ycor() + dy)
 
-    x += dx
-    y += dy
-
-    if x + radius >= screen_width or x - radius <= -screen_width:
+    if abs(ball.xcor()) + 15 >= screen.window_width() / 2: # Calculating screen width and height on the fly allows for resizing to work flawlessly
         dx *= -1
-    if y + radius >= screen_height or y - radius <= -screen_height:
+    if abs(ball.ycor()) + 15 >= screen.window_height() / 2:
         dy *= -1
-
+    
+    screen.update()
     time.sleep(0.01)

@@ -1,7 +1,9 @@
-DONT RESIZE THE WINDOW THAT RUNS OR ELSE IT BREAKS D:<  
-**COMMANDS TO RUN:**  
-  -$ git clone github.com/coolbeanscoding-dev/bouncyball  
-  -$ cd coolbeanscoding-dev/bouncyball  
-  -$ cd src  
-  -$ python3 ball.py  
-Then a screensaver will appear! REMEMBER DONT RESIZE WINDOW PLS  
+# Bouncyball
+
+## COMMANDS TO RUN:
+```console
+-$ git clone github.com/coolbeanscoding-dev/bouncyball  
+-$ cd bouncyball/src
+-$ python3 ball.py  
+```
+Then a screensaver will appear!
